@@ -1,0 +1,32 @@
+@mixin border-radius($value) {
+  -webkit-border-radius: $value;
+  -moz-border-radius: $value;
+  -ms-border-radius: $value;
+  border-radius: $value;
+}
+
+@mixin text-shadow($value) {
+  -webkit-text-shadow: $value;
+  -moz-text-shadow: $value;
+  -ms-text-shadow: $value;
+  text-shadow: $value;
+}
+
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  -ms-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin awesome($value) {
+  font-family: FontAwesome;
+  content: $value;
+}
+
+@mixin transition-all($time) {
+  -webkit-transition: all $time;
+  -o-transition: all $time;
+  -ms-transition: all $time;
+  transition: all $time;
+}

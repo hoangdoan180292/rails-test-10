@@ -1,0 +1,58 @@
+.comments-item-container {
+  .avatar {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    float: left;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .information {
+    width: calc(100% - 42px);
+    float: left;
+
+    .name {
+      color: #456baa;
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+
+      li {
+        display: inline;
+
+        a {
+          padding: 0 5px 0 10px;
+          font-size: 14px;
+          color: #686868;
+          text-decoration: none;
+          position: relative;
+
+          &:before {
+            font-size: 6px;
+            position: absolute;
+            top: 5px;
+            left: 0;
+
+            @include awesome("");
+          }
+        }
+      }
+    }
+  }
+
+  .actions {
+    border-bottom: 1px solid #c7c7c7;
+    margin-bottom: 10px;
+  }
+
+  .reply-form {
+    display: none;
+  }
+}

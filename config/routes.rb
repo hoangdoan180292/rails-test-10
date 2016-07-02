@@ -5,5 +5,12 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations',
     passwords: 'users/passwords'
   }
-  # root 'welcome#index'
+
+  resources :comments do
+    member do
+      post :reply
+    end
+  end
+
+  root 'comments#index'
 end

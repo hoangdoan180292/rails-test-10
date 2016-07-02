@@ -1,0 +1,17 @@
+.comments-item-container id="comment-#{ comment.id }"
+  .avatar
+    = image_tag comment.user.avatar(:small)
+  .information
+    .name = comment.user.name
+    .message == comment.message
+    .actions
+      ul
+        li = link_to "Reply", "javascript:", class: "btn-reply"
+        li = link_to "Edit", edit_comment_path(comment)
+        li = link_to "Delete", "javascript:"
+        li = format_date_and_month_year(comment.updated_at)
+    .replies id="replies-#{ comment.id }"
+      - comment.replies.each do |reply|
+        = render partial: "comments/item", locals: { comment: reply }
+    .reply-form
+      = render partial: "comments/reply_form", locals: { parent_id: comment.id }

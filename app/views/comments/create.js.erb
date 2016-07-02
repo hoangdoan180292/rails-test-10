@@ -1,0 +1,12 @@
+var comment = JSON.parse("<%= j @comment.to_json.html_safe %>");
+var status  = JSON.parse("<%= j @status.to_json.html_safe %>");
+
+if (status) {
+  if ( comment.parent_id != null ) {
+    $('#comment-'+ comment.parent_id).find('#replies-'+ comment.parent_id).append("<%= j render partial: 'comments/item', locals: { comment: @comment } %>")
+  } else {
+    $('#comments').append("<%= j render partial: 'comments/item', locals: { comment: @comment } %>")
+  }
+
+  $('.reply-form, .comments-comment-form-container').hide()
+}

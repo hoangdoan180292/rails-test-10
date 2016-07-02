@@ -1,0 +1,7 @@
+#comments-index-container
+  .container
+    #comments
+      = render partial: "comments/listing", locals: { comments: @comments }
+    .clearfix
+    = link_to "Create new comment", "javascript:", class: "btn btn-default btn-create-comment"
+    = render "comments/comment_form"

@@ -1,0 +1,3 @@
+.comments-listing-container
+  - comments.each do |comment|
+    = render partial: "comments/item", locals: { comment: comment }

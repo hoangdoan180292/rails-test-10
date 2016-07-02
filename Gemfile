@@ -16,6 +16,7 @@ gem 'font-awesome-rails'
 gem 'paperclip'
 gem 'seedbank'
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 gem 'bootstrap-sass'
 gem 'bootstrap_flash_messages'

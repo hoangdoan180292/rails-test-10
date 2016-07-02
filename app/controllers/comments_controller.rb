@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  authorize_resource
   before_action :find_comment, only: [:edit, :update]
   
   def index

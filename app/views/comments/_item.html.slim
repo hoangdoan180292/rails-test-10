@@ -7,8 +7,10 @@
     .actions
       ul
         li = link_to "Reply", "javascript:", class: "btn-reply"
-        li = link_to "Edit", edit_comment_path(comment), remote: true
-        li = link_to "Delete", "javascript:"
+        - if can? :update, comment
+          li = link_to "Edit", edit_comment_path(comment), remote: true
+        - if can? :destroy, comment
+          li = link_to "Delete", "javascript:"
         li = format_date_and_month_year(comment.updated_at)
     .replies id="replies-#{ comment.id }"
       - comment.replies.order(created_at: :asc).each do |reply|

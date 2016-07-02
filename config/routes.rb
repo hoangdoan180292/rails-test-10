@@ -6,11 +6,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  resources :comments do
-    member do
-      post :reply
-    end
-  end
+  resources :comments
 
   root 'comments#index'
 end

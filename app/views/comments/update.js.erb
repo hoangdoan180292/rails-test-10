@@ -1,0 +1,5 @@
+var status = JSON.parse("<%= j @status.to_json.html_safe %>");
+var comment = JSON.parse("<%= j @comment.to_json.html_safe %>");
+
+$('#comment-'+ comment.id +' .message').html(comment.message)
+$('.comments-edit-form-container').hide()

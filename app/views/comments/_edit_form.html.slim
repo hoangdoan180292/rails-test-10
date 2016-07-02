@@ -1,0 +1,4 @@
+.comments-edit-form-container
+  = simple_form_for comment, remote: true do |f|
+    = f.input :message
+    = f.button :submit, "Edit"

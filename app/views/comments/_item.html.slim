@@ -7,11 +7,11 @@
     .actions
       ul
         li = link_to "Reply", "javascript:", class: "btn-reply"
-        li = link_to "Edit", edit_comment_path(comment)
+        li = link_to "Edit", edit_comment_path(comment), remote: true
         li = link_to "Delete", "javascript:"
         li = format_date_and_month_year(comment.updated_at)
     .replies id="replies-#{ comment.id }"
-      - comment.replies.each do |reply|
+      - comment.replies.order(created_at: :asc).each do |reply|
         = render partial: "comments/item", locals: { comment: reply }
     .reply-form
       = render partial: "comments/reply_form", locals: { parent_id: comment.id }

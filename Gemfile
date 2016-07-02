@@ -17,6 +17,9 @@ gem 'paperclip'
 gem 'seedbank'
 gem 'devise'
 
+gem 'bootstrap-sass'
+gem 'bootstrap_flash_messages'
+
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'

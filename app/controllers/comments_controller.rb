@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment  = current_user.comments.new(comment_params)
-    @status   = @comment.save
+    @comment.save
   end
 
   def update

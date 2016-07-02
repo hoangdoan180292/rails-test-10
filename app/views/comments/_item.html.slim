@@ -15,3 +15,9 @@
         = render partial: "comments/item", locals: { comment: reply }
     .reply-form
       = render partial: "comments/reply_form", locals: { parent_id: comment.id }
+
+  javascript:
+    $('.actions .btn-reply').on('click', function(){
+      $('.information .reply-form').hide()
+      $(this).closest('.information').find('> .reply-form').fadeIn()
+    })

@@ -1,3 +1,4 @@
 var comment = JSON.parse("<%= j @comment.to_json.html_safe %>");
 
-$('#comment-'+ comment.id +' .actions').append("<%= j render partial: 'comments/edit_form', locals: { comment: @comment } %>")
+$('.comments-edit-form-container').remove()
+$('#comment-'+ comment.id +' .actions:first').append("<%= j render partial: 'comments/edit_form', locals: { comment: @comment } %>")

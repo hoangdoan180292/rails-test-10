@@ -5,3 +5,9 @@
     .clearfix
     = link_to "Create new comment", "javascript:", class: "btn btn-default btn-create-comment"
     = render "comments/comment_form"
+
+  javascript:
+    $('.btn-create-comment').click(function(){
+      $(this).closest('#comments-index-container').find('.comments-comment-form-container').fadeIn()
+      $('html,body').animate({ scrollTop: $('.comments-comment-form-container').offset().top - 30 }, 'slow');
+    })

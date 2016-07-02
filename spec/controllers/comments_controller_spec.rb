@@ -19,7 +19,7 @@ RSpec.describe CommentsController, type: :controller do
 
   describe '#create' do
     def do_request
-      post :create, comment: reply.attributes 
+      xhr :post, 'create', comment: reply.attributes 
     end
 
     let(:comment)       { create(:comment, user: user) }
@@ -42,6 +42,46 @@ RSpec.describe CommentsController, type: :controller do
         do_request
 
         expect(Comment.all.size).to eq 1
+      end
+    end
+  end
+
+  describe '#edit' do
+    def do_request
+      xhr :post, 'edit', id: comment.id
+    end
+
+    let(:comment) { create(:comment) }
+
+    it 'return comment' do
+      do_request
+      
+      expect(assigns(:comment)).to eq comment
+    end
+  end
+
+  describe '#update' do
+    def do_request
+      xhr :patch, 'update', id: comment.id, comment: comment_params
+    end
+
+    let!(:comment) { create(:comment) }
+
+    context 'success' do 
+      let(:comment_params) { attributes_for(:comment, message: 'new message') }
+      it 'update a comment' do 
+        do_request
+
+        expect(comment.reload.message).to eq 'new message'
+      end
+    end
+
+    context 'fail' do 
+      let(:comment_params) { attributes_for(:comment, message: '') }
+      it 'dont change message' do 
+        do_request
+
+        expect(comment.reload.message).to eq comment.message
       end
     end
   end

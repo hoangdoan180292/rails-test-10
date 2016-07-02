@@ -1,0 +1,20 @@
+.layouts-menu-container
+  .container
+    .row
+      .navbar-header
+        button.navbar-toggle.collapsed aria-expanded="false" data-target="#top-menu-collapse" data-toggle="collapse" type="button" 
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #top-menu-collapse.collapse.navbar-collapse
+        .row
+          .content-wrap
+            .col-lg-10.col-md-8
+              ul.nav.navbar-nav
+                li = link_to 'Home', root_path, title: 'Home', active: :exact
+                - if user_signed_in?
+                  li = link_to 'Sign out', destroy_user_session_path, method: :delete
+                - else
+                  li = link_to 'Sign In', new_user_session_path, title: 'Sign In', class: 'sign-in'
+                  li = link_to 'Join', new_user_registration_path, title: 'Join', class: 'join'
